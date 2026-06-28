@@ -1,7 +1,17 @@
 local Players          = game:GetService("Players")
 local UIS              = game:GetService("UserInputService")
 local TeleportService  = game:GetService("TeleportService")
+local VirtualUser      = game:GetService("VirtualUser")
 local Player           = Players.LocalPlayer
+
+task.spawn(function()
+    while true do
+        task.wait(300)
+        VirtualUser:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+        task.wait(0.1)
+        VirtualUser:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+    end
+end)
 
 local Running   = false
 local STEP_WAIT = 0.8
